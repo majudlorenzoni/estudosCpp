@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -54,11 +55,87 @@ void math(){
     cout << fmax(3, 10) << std::endl;                   // retora o valor mais alto
     cout << fmax(3, 10) << std::endl;
 }
+
+void input (){
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;    // serve pra int, double, char
+    cout << "Your are " << age << " years old";
+
+    //string
+    string name;
+    cout << "Enter your name: ";
+    getline(cin, name);          
+    cout << "Hello, my name is " << name;
+}
+
+int calculator(){
+    int option;
+    int num1, num2;
+    std::cout << "Calculadora!" << std::endl;
+    std::cout << "Escolha uma das operações" << std::endl;
+    std::cout << "1. Adição \n2. Subtração \n3. Multiplicação\n4. Divisão\nSua escolha: " << std::endl;
+    std::cin >> option;
+    
+   if (option >= 1 && option <= 4) {
+        std::cout << "Digite os valores: ";
+        cin >> num1 >> num2;
+    
+    switch (option) {
+    case 1:
+      std::cout << "Adição" << std::endl;
+      std::cout << "Resultado: " << num1 + num2 << std::endl;
+        break;
+    case 2:
+      std::cout << "Subtração" << std::endl;
+      std::cout << "Resultado: " << num1 - num2 << std::endl;
+        break;
+    case 3:
+      std::cout << "Multiplicação" << std::endl;
+      std::cout << "Resultado: " << num1 * num2 << std::endl;
+        break;
+    case 4:
+        if (num2 != 0){
+      std::cout << "Divisão" << std::endl;
+      std::cout << "Resultado: " << num1 / num2 << std::endl;
+      std::cout << "Resto: " << num1 % num2 << std::endl;
+        } else {
+                std::cout << "Erro: divisão por zero" << std::endl;
+        }
+        break;
+
+    } } else {
+    std::cout << "Opção incorreta. Reinicie o programa" << std::endl;
+    }
+    std::cout << "Encerrando a calculadora..." << std::endl;
+    return 0;
+    }
+
+void madLibs(){
+    string color, pluralNoun, celebrity;
+
+    std::cout << "Jogo Mad Libs!" << std::endl;
+    std::cout << "Escreva uma cor: " << std::endl;
+    getline(cin, color);
+
+    std::cout << "Escreva um nome no plural: " << std::endl;
+    getline(cin, pluralNoun);
+
+    std::cout << "Escreva uma celebridade: " << std::endl;
+    getline(cin, celebrity);
+    std::cout << "Rosas são " << color << std::endl;
+    std::cout << pluralNoun << " sao azuis" << std::endl;
+    std::cout << "Eu amo a " << celebrity << std::endl;
+}
+
 int main()
 {
     //helloWorld();
 	//dataType();
 	//strings();
-    //  numbers();
-    math();
+    //numbers();
+    //math();
+    //input();
+    calculator();
+    madLibs();
 }
