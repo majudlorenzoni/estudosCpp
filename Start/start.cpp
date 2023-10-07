@@ -23,7 +23,6 @@ void dataType() {
 }
 
 // STRINGS
-
 void strings() {
 	string phrase = "Giraffe Academy";
 	cout << phrase.length() << std::endl;						// length conta quantos caracteres a string tem
@@ -47,12 +46,12 @@ void numbers(){
 }
 
 void math(){
-    cout << pow(2, 5) << std::endl;        //potencia
+    cout << pow(2, 5) << std::endl;         //potencia
     cout << sqrt(36) << std::endl;          //raiz
     cout << round (4.3) << std::endl;       // arredonda
-    cout << ceil(4.1) << std::endl;         // arredonda pra cima
+    cout << ceil (4.1) << std::endl;        // arredonda pra cima
     cout << floor (4.8) << std::endl;       // arredonda pra baixo
-    cout << fmax(3, 10) << std::endl;                   // retora o valor mais alto
+    cout << fmax(3, 10) << std::endl;       // retora o valor mais alto
     cout << fmax(3, 10) << std::endl;
 }
 
@@ -128,6 +127,48 @@ void madLibs(){
     std::cout << "Eu amo a " << celebrity << std::endl;
 }
 
+void arrays(){
+    int luckyNums [2] = {11, 14};
+    cout << luckyNums[1];
+
+}
+
+void sayHi(string name, int age){
+    cout << "Hello " << name << " you are "<< age;
+}
+
+double cube(double num){
+    double result = num * num* num;
+    return result;
+}
+
+int getMax(int num1, int num2){
+    int result;
+    if(num1 > num2) {
+        cout << num1 << "  é maior";
+    } else {
+        cout << num2 << " é maior";
+    }
+    return result;
+}
+
+void IF(){
+      bool isBrazilian = false;
+    bool isPortuguese = true;
+    if (isBrazilian || isPortuguese){
+        cout << "Oi. Seja bem vindo";
+    } else {
+        cout << "Hello. Welcome";
+    }
+}
+
+void funcaoWhile(){
+    int index = 2;
+    while (index <= 11){
+        cout << index << endl;
+        index++;
+    }
+}
 int main()
 {
     //helloWorld();
@@ -136,6 +177,15 @@ int main()
     //numbers();
     //math();
     //input();
-    calculator();
-    madLibs();
+    //calculator();
+    //madLibs();
+    //arrays();
+    //sayHi("Maria", 20);
+    //double answer = cube(3);
+    //cout << answer; 
+    //IF();
+    //getMax(9,6);
+    //funcaoWhile();
+
+    
 }
