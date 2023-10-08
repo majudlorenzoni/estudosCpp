@@ -169,6 +169,74 @@ void funcaoWhile(){
         index++;
     }
 }
+
+void numberDivination(){
+    int secretNum = 11;
+    int guess;
+    int guessCount = 0;
+    int guessLimit = 3;
+    bool outOfGuesses = false;
+    while(secretNum != guess && !outOfGuesses){
+        if (guessCount < guessLimit) {
+            cout << "Digite o seu palpite: " << endl;
+            cin >> guess;
+            guessCount++;
+        } else {
+            outOfGuesses = true;
+        }
+    }
+    
+    if (outOfGuesses){
+        cout << "Voce perdeu!" << endl;
+    } else {
+    cout << "Voce venceu!" << endl;
+    cout << "O numero secreto eh " << secretNum << " !!" << endl;
+    }
+}
+
+void loopFor(){
+    int nums[] = {1, 2, 5, 7, 3};
+    for(int i = 0; i <= 5; i++){
+        cout << nums[i] << endl;
+    }
+}
+
+int exponentFuction(int baseNum, int powNum){
+    int result = 1;
+    for(int i = 0; i < powNum; i++){
+        result = result * baseNum;
+    }
+    return result;
+}
+
+void array2(){
+    int numberGrid[3][2] = {
+        {1, 2}, 
+        {3, 4},
+        {5, 6}
+    };
+  
+  for(int i = 0; i < 3; i++){
+    for (int j = 0; j < 2; j++){
+        cout << numberGrid [i][j];
+    }
+    cout << endl;
+  }
+
+}
+
+void pointers(){
+    int age = 19;
+    int *pAge = &age;
+    double gpa = 2.7;
+    double *pGpa = &gpa;
+    string name = "Mike";
+    string *pName = &name;
+
+    cout << "Age: " << *pAge << endl;
+    cout << "Gpa: " << *pGpa << endl;
+    cout << "Name: " << *pName << endl;
+}
 int main()
 {
     //helloWorld();
@@ -186,6 +254,9 @@ int main()
     //IF();
     //getMax(9,6);
     //funcaoWhile();
-
-    
+    //numberDivination();
+    //loopFor();
+    //cout << exponentFuction(4, 3);
+    //array2();
+    pointers();
 }
