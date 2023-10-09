@@ -237,6 +237,93 @@ void pointers(){
     cout << "Gpa: " << *pGpa << endl;
     cout << "Name: " << *pName << endl;
 }
+
+class Book {
+    public:
+        string title;
+        string author;
+        int pages;
+
+        Book(string aTitle, string aAuthor, int aPages){
+            title = aTitle;
+            author = aAuthor;
+            pages = aPages;
+        }
+
+        Book(){
+            title = "Sem titulo";
+            author = "Sem autor";
+            pages = 0;
+        }
+};
+
+class Student {
+    public:
+    string name;
+    string major;
+    double gpa;
+    Student(string aName, string aMajor, double aGpa){
+        name = aName;
+        major = aMajor;
+        gpa = aGpa;
+    }
+
+    bool hasHonors(){
+        if(gpa >= 3.5){
+            return true;
+        }
+        return false;
+    }
+
+};
+
+class Movie{
+
+    private: 
+    string rating;
+    public:
+    string title;
+    string director;
+   
+
+    Movie(string aTitle, string aDirector, string aRating){
+        title = aTitle;
+        director = aDirector;
+        setRating(aRating);
+    }
+
+    void setRating(string aRating){
+      if(aRating == "G" || aRating  == "PG-13" || aRating == "R" || aRating == "NR"){
+        rating = aRating;
+      } else {
+        rating = "NR"; 
+      }
+    } 
+
+    string getRating(){
+        return rating;
+    }
+};
+
+class Chef {
+    public:
+        void makeChicken(){
+            cout << "O chefe fez frango" << endl;
+        }
+        void makeSalad(){
+            cout << "O chefe fez salada" << endl;
+        }
+        void makeSpecialDish(){
+            cout << "O chefe fez churrasco de costela" << endl;
+        }
+};
+
+class ItalianChef : public Chef {
+    public:
+        void makePasta(){
+            cout << "O chefe fez macarrao" << endl;
+        }
+};
 int main()
 {
     //helloWorld();
@@ -245,7 +332,7 @@ int main()
     //numbers();
     //math();
     //input();
-    //calculator();
+      //calculator();
     //madLibs();
     //arrays();
     //sayHi("Maria", 20);
@@ -258,5 +345,36 @@ int main()
     //loopFor();
     //cout << exponentFuction(4, 3);
     //array2();
-    pointers();
+    //pointers();
+
+    /*
+    Book book1("As Vantagens de Ser Voce", "Ray Tavares", 350);
+    Book book2("Memorias Postumas de Bras Cubas", "Machado de Assis", 320);
+    Book book3;
+    cout << book1.title;
+    cout << book3.title;
+
+    
+    Student student1("Maria", "Computer Science", 7.0);
+    Student student2("Louise", "Computer Science", 8.0);
+
+    cout << student1.hasHonors();
+
+    
+
+   Movie bottoms("Bottoms", "Emma Seligman", "R");
+
+
+   cout << "Nome do filme: " << bottoms.director << endl;
+   cout << "Diretora: " << bottoms.director << endl;
+   cout << "Classificacao americana: " << bottoms.getRating();
+   */
+
+    Chef chef;
+    chef.makeSpecialDish();
+
+    ItalianChef italianChef;
+    italianChef.makeSalad();
+    italianChef.makePasta();
+   return 0;
 }
