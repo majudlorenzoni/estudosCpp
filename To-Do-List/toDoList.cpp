@@ -31,7 +31,8 @@ void showProgram(){
         cout << "\n\t2. Mostrar Tarefa";
         cout << "\n\t3. Buscar Tarefa";
         cout << "\n\t4. Deletar Tarefa";
-        cout << "\n\t5. Sair";
+        cout << "\n\t5. Modificar Tarefa";
+        cout << "\n\t6. Sair";
 
         int choice;
         cout <<"\n\t Insira a escolha: ";
@@ -51,6 +52,10 @@ void showProgram(){
            deleteTask();
             break;
         case 5:
+            updateTask();
+            break;
+
+        case 6:
             exitProgram();
             break;
 
@@ -59,6 +64,7 @@ void showProgram(){
         }
     }
 }
+
 int main (){
     system("cls");
     showProgram();
@@ -133,6 +139,7 @@ void showTask(){
         }
     }
     fin.close();
+
     char exit;
     cout << "Voltar ao menu?" << endl;
     cout << "(1) SIM" << endl;
@@ -210,3 +217,66 @@ void deleteTask(){
         }
     }
 }
+
+void updateTask(){
+    int id;
+    cout << "Insira o Id da tarefa que deseja modificar: ";
+    cin >> id;
+
+    todolist todo;
+    ofstream tempFile("temp2.txt");
+    ifstream inFile("toDoList.txt");
+
+    if (!inFile) {
+        cerr << "Erro ao abrir o arquivo." << endl;
+        return;
+    }
+    if (!tempFile) {
+        cerr << "Erro ao abrir o arquivo temporário." << endl;
+        return;
+    }
+
+    bool encontrado = false;
+    
+    while(inFile >> todo.id){
+        inFile.ignore();
+        getline(inFile, todo.task);
+
+        if(todo.id == id){
+            encontrado = true;
+
+            cout << "\t" << todo.id << ": " << todo.task << endl;
+
+            string atualizaTarefa;
+            cout << "Insira a nova descrição da tarefa: ";
+            cin.ignore();
+            getline(cin, atualizaTarefa);
+
+            todo.task = atualizaTarefa;
+
+            tempFile << todo.id << endl << todo.task << endl; 
+        } else {
+            tempFile << todo.id << endl << todo.task << endl; 
+        }
+    }
+
+    inFile.close();
+    tempFile.close();
+
+    if(!encontrado){
+        cout << "Tarefa não encontrada" << endl;
+    } else {
+        remove("toDoList.txt");
+        if (rename("temp2.txt", "toDoList.txt") != 0) {
+            cerr << "Erro ao renomear o arquivo temporário." << endl;
+            return;
+        }
+        remove("temp2.txt");
+
+        cout << "Tarefa modificada com sucesso!" << endl;
+    }
+
+    return;
+}
+
+       
